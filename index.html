@@ -1,1 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BACKUP — Wear Your Style</title>
+  <meta name="description" content="BACKUP — Modern clothing made for your style.">
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 6%;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.6;
+    }
+
+    .cart {
+      border: 1px solid #fff;
+      padding: 10px 16px;
+      border-radius: 30px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.55) 48%, rgba(0,0,0,.15) 100%),
+        url("backup-banner.png") center/cover no-repeat;
+      padding: 120px 6% 60px;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .small-title {
+      font-size: 14px;
+      letter-spacing: 5px;
+      margin-bottom: 20px;
+      opacity: .8;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 110px);
+      line-height: .9;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 450px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #ddd;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 28px;
+      background: #fff;
+      color: #000;
+      border-radius: 40px;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #ddd;
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #111;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .feature {
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid #222;
+    }
+
+    .feature:last-child {
+      border-right: none;
+    }
+
+    .feature h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .feature p {
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* PRODUCTS */
+    .products-section {
+      padding: 90px 6%;
+      background: #0a0a0a;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: 42px;
+      letter-spacing: -2px;
+    }
+
+    .section-heading p {
+      color: #888;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      background: #111;
+      border: 1px solid #202020;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      border-color: #444;
+    }
+
+    .product-image {
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #171717;
+      font-size: 60px;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #bbb;
+      margin-bottom: 17px;
+    }
+
+    .product-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      border: 1px solid #444;
+      border-radius: 30px;
+      font-weight: 700;
+    }
+
+    .product-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 100px 6%;
+      background: #111;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 46px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      color: #aaa;
+      line-height: 1.8;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      padding: 80px 6%;
+      text-align: center;
+      background: #0a0a0a;
+    }
+
+    .newsletter h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .newsletter p {
+      color: #888;
+      margin-bottom: 25px;
+    }
+
+    .email-box {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .email-box input {
+      flex: 1;
+      padding: 15px 20px;
+      border-radius: 30px;
+      border: 1px solid #333;
+      background: #111;
+      color: white;
+      outline: none;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #222;
+      padding: 35px 6%;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 85vh;
+        padding-top: 100px;
+      }
+
+      .hero h1 {
+        font-size: 65px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading h2 {
+        margin-bottom: 10px;
+      }
+
+      .email-box {
+        flex-direction: column;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">BACKUP</div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a class="cart" href="#shop">Cart (0)</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="small-title">PREMIUM CLOTHING</div>
+
+      <h1>WEAR<br>YOUR<br>STYLE.</h1>
+
+      <p>
+        Modern clothing designed for confidence,
+        comfort and everyday style.
+      </p>
+
+      <a class="btn" href="#shop">SHOP NOW →</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h3>FAST DELIVERY</h3>
+      <p>Across Pakistan</p>
+    </div>
+
+    <div class="feature">
+      <h3>PREMIUM QUALITY</h3>
+      <p>Built to last</p>
+    </div>
+
+    <div class="feature">
+      <h3>EASY RETURNS</h3>
+      <p>Simple & hassle-free</p>
+    </div>
+
+    <div class="feature">
+      <h3>SECURE SHOPPING</h3>
+      <p>Shop with confidence</p>
+    </div>
+  </section>
+
+  <section class="products-section" id="shop">
+
+    <div class="section-heading">
+      <div>
+        <h2>Featured Collection</h2>
+        <p>Discover the latest from BACKUP.</p>
+      </div>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">👕</div>
+        <div class="product-info">
+          <h3>Classic T-Shirt</h3>
+          <div class="price">Rs. 1,999</div>
+          <a href="#" class="product-btn">ADD TO CART</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🧥</div>
+        <div class="product-info">
+          <h3>Premium Hoodie</h3>
+          <div class="price">Rs. 3,499</div>
+          <a href="#" class="product-btn">ADD TO CART</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">👖</div>
+        <div class="product-info">
+          <h3>Urban Pants</h3>
+          <div class="price">Rs. 2,799</div>
+          <a href="#" class="product-btn">ADD TO CART</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">👔</div>
+        <div class="product-info">
+          <h3>Signature Shirt</h3>
+          <div class="price">Rs. 2,499</div>
+          <a href="#" class="product-btn">ADD TO CART</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>ABOUT BACKUP</h2>
+    <p>
+      BACKUP is a modern clothing brand focused on clean designs,
+      premium style and comfortable everyday wear.
+      Our goal is simple: help you wear your style with confidence.
+    </p>
+  </section>
+
+  <section class="newsletter" id="contact">
+    <h2>JOIN BACKUP</h2>
+    <p>Get updates about new drops and special offers.</p>
+
+    <div class="email-box">
+      <input type="email" placeholder="Enter your email">
+      <a href="#" class="btn">SUBSCRIBE</a>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 BACKUP. All rights reserved.</div>
+    <div>Wear Your Style.</div>
+  </footer>
+
+</body>
+</html>
